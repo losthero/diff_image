@@ -62,6 +62,27 @@ class DiffImage {
       ignoreAlpha: ignoreAlpha,
     );
   }
+  
+  // This is losthero's code 
+  // I want to compare Url Memory 
+  static Future<DiffImgResult> compareFromUrlMemory(
+    dynamic firstImgSrc,
+    dynamic secondImgSrc, {
+        bool asPercentage = true,
+        bool ignoreAlpha = true,
+    }) async {
+      var firstImg = await getImg(
+      imgSrc: firstImgSrc,
+    );
+
+    return compareFromMemory(
+      firstImg,
+      secondImgSrc,
+      asPercentage: asPercentage,
+      ignoreAlpha: ignoreAlpha,
+    );
+  }
+
 
   /// Computes the diffence between two images with the same width and heigth
   /// by receiving two [Image] objects (one for each image). Returns a
