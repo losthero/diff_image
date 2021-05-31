@@ -8,9 +8,9 @@ import 'models/diff_img_result.dart';
 class DiffImage {
   /// Returns a single number representing the difference between two RGB pixels
   static num _diffBetweenPixels({
-    @required int firstPixel,
-    @required bool ignoreAlpha,
-    @required int secondPixel,
+    required int firstPixel,
+    required bool ignoreAlpha,
+    required int secondPixel,
   }) {
     var fRed = getRed(firstPixel);
     var fGreen = getGreen(firstPixel);
@@ -123,9 +123,9 @@ class DiffImage {
         secondPixel = secondImg.getPixel(i, j);
 
         diffAtPixel = _diffBetweenPixels(
-          firstPixel: firstPixel,
+          firstPixel: firstPixel as int,
           ignoreAlpha: ignoreAlpha,
-          secondPixel: secondPixel,
+          secondPixel: secondPixel as int,
         );
         diff += diffAtPixel;
 
@@ -155,7 +155,7 @@ class DiffImage {
   /// Function to store an [Image] object as PNG in local storage.
   /// Not supported on web.
   static Future<void> saveDiffImg({
-    @required Image diffImg,
+    required Image diffImg,
   }) async {
     await io.File('DiffImg.png').writeAsBytes(
       encodePng(diffImg),

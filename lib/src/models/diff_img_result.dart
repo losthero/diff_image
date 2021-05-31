@@ -5,8 +5,8 @@ import 'package:meta/meta.dart';
 /// query.
 class DiffImgResult {
   DiffImgResult({
-    @required this.diffImg,
-    @required this.diffValue,
+    required this.diffImg,
+    required this.diffValue,
   });
 
   final Image diffImg;

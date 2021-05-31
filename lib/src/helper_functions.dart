@@ -4,8 +4,8 @@ import 'package:meta/meta.dart';
 
 /// Through http get request to [imgSrc] obtains the bytes
 /// that make up an image. Can throw an [Exception].
-Future<Image> getImg({@required dynamic imgSrc}) async {
-  Image img;
+Future<Image> getImg({required dynamic imgSrc}) async {
+  Image? img;
 
   var response = await http.get(imgSrc);
   if (response.statusCode != 200) {
@@ -26,8 +26,8 @@ Future<Image> getImg({@required dynamic imgSrc}) async {
 
 /// Check if [firstImg] and [secondImg] have the same width and height.
 bool haveSameSize({
-  @required Image firstImg,
-  @required Image secondImg,
+  required Image firstImg,
+  required Image secondImg,
 }) {
   return firstImg.width == secondImg.width &&
       firstImg.height == secondImg.height;
@@ -37,9 +37,9 @@ bool haveSameSize({
 /// If one of the pixels is black, the resulting color will be the
 /// other pixel but more transparent.
 int selectColor({
-  @required num diffAtPixel,
-  @required int firstPixel,
-  @required int secondPixel,
+  required num diffAtPixel,
+  required int firstPixel,
+  required int secondPixel,
 }) {
   int result;
 
